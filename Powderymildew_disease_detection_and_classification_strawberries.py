@@ -61,20 +61,21 @@ def plot_pcs(X, y, title="PCA Score Plot"):
 # ========================================
 # 2. Load Spectral Data
 # ========================================
-healthy1 = np.load(r'D:\Python_Codes_N_Results_Folder\Results\Spectrum_Strawberry_Folder\2D_array_spectra\2D_array_healthyleaves_spectra\2D_array_leavesspectra_h1.npy')  # Shape: (N1, 164)
-healthy2 = np.load(r'D:\Python_Codes_N_Results_Folder\Results\Spectrum_Strawberry_Folder\2D_array_spectra\2D_array_healthyleaves_spectra\2D_array_leavesspectra_h2.npy')
-healthy3 = np.load(r'D:\Python_Codes_N_Results_Folder\Results\Spectrum_Strawberry_Folder\2D_array_spectra\2D_array_healthyleaves_spectra\2D_array_leavesspectra_h3.npy')
+healthy1 = np.load(r'Folder1\Folder2\PowderyMildew_DiseaseDetection_Strawberries_Spectra\Healthy\2D_array_leavesspectra_h1.npy')  # Shape: (N1, 164)
+healthy2 = np.load(r'Folder1\Folder2\PowderyMildew_DiseaseDetection_Strawberries_Spectra\Healthy\2D_array_leavesspectra_h2.npy')  # Shape: (N2, 164)
+healthy3 = np.load(r'Folder1\Folder2\PowderyMildew_DiseaseDetection_Strawberries_Spectra\Healthy\2D_array_leavesspectra_h3.npy')  # Shape: (N3, 164)
 
-mildew1 = np.load(r'D:\Python_Codes_N_Results_Folder\Results\Spectrum_Strawberry_Folder\2D_array_spectra\2D_array_mw_affected_leaves_spectra\2D_array_leavesspectra_mw1.npy')  # Shape: (N2, 164)
-mildew2 = np.load(r'D:\Python_Codes_N_Results_Folder\Results\Spectrum_Strawberry_Folder\2D_array_spectra\2D_array_mw_affected_leaves_spectra\2D_array_leavesspectra_mw2.npy')  # Shape: (N2, 164)
-mildew3 = np.load(r'D:\Python_Codes_N_Results_Folder\Results\Spectrum_Strawberry_Folder\2D_array_spectra\2D_array_mw_affected_leaves_spectra\2D_array_leavesspectra_mw3.npy')  # Shape: (N2, 164)
-mildew4 = np.load(r'D:\Python_Codes_N_Results_Folder\Results\Spectrum_Strawberry_Folder\2D_array_spectra\2D_array_mw_affected_leaves_spectra\2D_array_leavesspectra_mw4.npy')  # Shape: (N2, 164)
+mildew1 = np.load(r'Folder1\Folder2\PowderyMildew_DiseaseDetection_Strawberries_Spectra\Mildew_affected\2D_array_leavesspectra_mw1.npy')  # Shape: (N4, 164)
+mildew2 = np.load(r'Folder1\Folder2\PowderyMildew_DiseaseDetection_Strawberries_Spectra\Mildew_affected\2D_array_leavesspectra_mw2.npy')  # Shape: (N5, 164)
+mildew3 = np.load(r'Folder1\Folder2\PowderyMildew_DiseaseDetection_Strawberries_Spectra\Mildew_affected\2D_array_leavesspectra_mw3.npy')  # Shape: (N6, 164)
+mildew4 = np.load(r'Folder1\Folder2\PowderyMildew_DiseaseDetection_Strawberries_Spectra\Mildew_affected\2D_array_leavesspectra_mw4.npy')  # Shape: (N7, 164)
 
 
 healthy = np.vstack((healthy1, healthy2, healthy3))[:, :145]
 mildew = np.vstack((mildew1, mildew2, mildew3, mildew4))[:, :145]
 
 print(f"Healthy shape: {healthy.shape}, Mildew shape: {mildew.shape}")
+
 #exit()
 
 X_raw = np.vstack((healthy, mildew))
@@ -255,3 +256,4 @@ ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=['Healthy','Mildew'])
 )
 plt.title('Confusion Matrix - Improved CNN')
 plt.show()
+
